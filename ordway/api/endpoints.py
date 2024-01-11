@@ -201,7 +201,7 @@ class Subscriptions(
 
         params = {"callback_url": callback_url} if callback_url is not None else None
 
-        return self._get_request(
+        return self._put_request(
             f"{self.collection}/{id}/change_preview", json=data, params=params
         )
 
