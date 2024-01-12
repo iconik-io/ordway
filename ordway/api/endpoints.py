@@ -184,7 +184,7 @@ class Subscriptions(
         params = {"callback_url": callback_url} if callback_url is not None else None
 
         return self._put_request(
-            f"{self.collection}/{id}/cancel", json=data, params=params
+            f"{self.collection}/{id}/renew", json=data, params=params
         )
 
     def change(self, id: str, data: Dict[str, Any], callback_url: Optional[str] = None):
@@ -194,6 +194,15 @@ class Subscriptions(
 
         return self._put_request(
             f"{self.collection}/{id}/change", json=data, params=params
+        )
+    
+    def change_preview(self, id: str, data: Dict[str, Any], callback_url: Optional[str] = None):
+        """ Change an active subscription """
+
+        params = {"callback_url": callback_url} if callback_url is not None else None
+
+        return self._put_request(
+            f"{self.collection}/{id}/change_preview", json=data, params=params
         )
 
 
